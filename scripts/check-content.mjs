@@ -12,8 +12,9 @@ const data = await import(`data:text/javascript;base64,${Buffer.from(code).toStr
 const { projects, experience, categories, strengths, workingStyle, profile, portfolioDocument, projectVisuals } = data
 const slugs = new Set(projects.map(project => project.slug))
 assert.equal(slugs.size, projects.length, 'Project slugs must be unique')
-assert.equal(projects.length, 5, 'The portfolio must contain five core projects')
-assert.equal(experience.length, 6, 'Experience must include five cases and volunteer service')
+assert.equal(projects.length, 6, 'The portfolio must contain six core projects')
+assert.equal(experience.length, 7, 'Experience must include six cases and volunteer service')
+assert.ok(slugs.has('caretrip-ops') && slugs.has('caretrip-goai'), 'Both CareTrip versions must have separate case studies')
 const projectExperience = experience.filter(item => item.kind === 'project')
 assert.equal(projectExperience.length, projects.length)
 assert.equal(new Set(projectExperience.map(item => item.projectSlug)).size, projects.length)

@@ -85,7 +85,7 @@ export const projects: Project[] = [
   {
     slug: 'caretrip-ops', index: '02',
     category: { en: 'Agent development · Hackathon', zh: 'Agent 开发 · 黑客松' },
-    title: { en: 'CareTrip Ops', zh: 'CareTrip Ops' },
+    title: { en: 'CareTrip Ops · ZEIL', zh: 'CareTrip Ops · ZEIL' },
     subtitle: { en: 'A travel planning agent with verifiable quotes and user approval.', zh: '可核验报价、由用户确认的旅行规划 Agent。' },
     period: { en: 'Sep – Oct 2026', zh: '2026.09 – 10' },
     role: { en: 'AI Agent development · ZEIL Hackathon', zh: 'AI Agent 开发 · ZEIL Hackathon' },
@@ -113,7 +113,40 @@ export const projects: Project[] = [
     reflection: { en: 'The useful boundary for this agent is clear: models help draft and review options, while deterministic checks and user approval control consequential state changes.', zh: '这个 Agent 的关键边界很清楚：模型辅助生成与审核方案，确定性校验和用户确认把控关键状态变更。' },
   },
   {
-    slug: 'uav-advisory-agent', index: '03',
+    slug: 'caretrip-goai', index: '03',
+    category: { en: 'Alibaba Cloud Agent Teams · GOAI', zh: '阿里云 Agent Teams · GOAI' },
+    title: { en: 'CareTrip Ops · GOAI', zh: 'CareTrip Ops · GOAI' },
+    subtitle: { en: 'Design a coordinated agent service from a travel request to verified ticketing.', zh: '从一句出游需求，到可核验的服务闭环。' },
+    period: { en: '2026 · GOAI Agent Infra preliminary round', zh: '2026 · GOAI Agent Infra 初赛' },
+    role: { en: 'Agent product and architecture design · GOAI', zh: 'Agent 产品与架构设计 · GOAI' },
+    tags: ['Alibaba Cloud Agent Teams', 'Skills', 'MCP contracts', 'HITL', 'Product design'],
+    status: { en: 'Agent product / solution design', zh: 'Agent 产品与解决方案设计' },
+    overview: { en: 'The GOAI version of CareTrip Ops designs an Alibaba Cloud Agent Teams service for travel agencies and OTAs. It translates phone and WeChat requests into explicit constraints, comparable options, traveller confirmation, payment handoff, and ticket verification, with coordinated roles across the full journey.', zh: 'GOAI 版本的 CareTrip Ops 基于阿里云 Agent Teams，面向旅行社与 OTA 设计 Agent 协同服务，将电话和微信中的出游需求转为明确约束、方案比较、本人确认、支付交接与出票核验，贯通银发出行的服务链路。' },
+    challenge: { en: 'A travel request involves the traveller, family members, service staff, and external suppliers. The product challenge was to coordinate these roles while keeping preferences, permissions, transaction status, and service evidence consistent.', zh: '一条出游需求涉及老人、家属、客服与外部供应商。产品重点是协调多方角色，让偏好、权限、交易状态与服务证据保持一致。' },
+    responsibility: [
+      { en: 'Designed the product journey from request intake and clarification to option comparison, transaction checks, and after sales handling.', zh: '拆解用户旅程，设计从需求受理、澄清、方案比较到交易核验与售后处理的产品流程。' },
+      { en: 'Specified agent identities, Skill contracts, state transitions, exception branches, and acceptance criteria with the team.', zh: '与团队制定 Agent Identity、Skill 契约、状态流转、异常分支和验收条件。' },
+      { en: 'Designed confirmation, staff handoff, and evidence review around payment and other sensitive decisions.', zh: '围绕支付等关键决策，设计本人确认、人工接管与证据审核机制。' },
+    ],
+    architecture: [
+      { en: '1 Manager + 5 Workers coordinate the service journey, with independent evidence review and recommendation conflict arbitration.', zh: '1 个 Manager + 5 个 Workers 协调服务旅程，并设置独立证据核验与推荐冲突仲裁。' },
+      { en: 'The proposed architecture specifies 27 layered Skills (8 general, 5 scenario, 14 integration) and 4 planned MCP service types. A companion inventory details 16 core Skills.', zh: '方案规划 27 项分层 Skills（8 通用、5 场景、14 集成）与 4 类 MCP 服务；配套清单细化 16 项核心 Skills。' },
+      { en: 'MCP / Adapter contracts connect proposed external systems; deterministic services handle pricing, permissions, and payment checks.', zh: 'MCP / Adapter 契约规划外部系统连接；价格、权限和支付核验交由确定性服务。' },
+    ],
+    process: [
+      { en: 'Mapped an older traveller’s voice request into missing fields, hard constraints, and preferences.', zh: '将银发用户的语音需求拆解为缺失字段、硬约束和偏好。' },
+      { en: 'Designed evidence grades, fallback paths, checkpoints, idempotency, and a staff review path.', zh: '设计证据分级、降级路径、检查点、幂等和人工审核。' },
+      { en: 'Planned mock data, demo scenarios, and target metrics to make the design testable.', zh: '规划模拟数据、Demo 场景与目标指标，让产品方案具备明确的验证路径。' },
+    ],
+    outcomes: [
+      { en: 'Produced the preliminary product proposal, agent architecture, Skill contracts, state machine, and acceptance criteria.', zh: '形成初赛产品方案、Agent 架构、Skill 契约、状态机与验收标准。' },
+      { en: 'Defined a complete service loop and evaluation plan covering normal requests, exceptions, and staff intervention.', zh: '完成覆盖常规需求、异常分支与人工介入的服务闭环及评估规划。' },
+    ],
+    note: { en: 'GOAI concept and architecture proposal. The separate ZEIL Hackathon version is a LangGraph-based working PoC.', zh: '此页为 GOAI 方案与架构设计；ZEIL Hackathon 版本是单独的 LangGraph 可运行 PoC。' },
+    reflection: { en: 'Agent product design requires precise responsibilities, recoverable states, and testable contracts. These choices turn a broad service idea into a concrete architecture and a practical implementation plan.', zh: 'Agent 产品设计需要明确职责、可恢复状态与可验证契约。这些设计把宽泛的服务构想转为具体架构与可执行的开发规划。' },
+  },
+  {
+    slug: 'uav-advisory-agent', index: '04',
     category: { en: 'LLM application · Internship', zh: '大模型应用 · 实习' },
     title: { en: 'UAV Export Advisory Agent', zh: '无人机出口管制咨询 Agent' },
     subtitle: { en: 'Turn regulatory documents into a structured, five stage advisory workflow.', zh: '将复杂法规材料转为结构化五阶段咨询流程。' },
@@ -144,7 +177,7 @@ export const projects: Project[] = [
     note: { en: 'Public case study uses sandbox scenarios and public regulatory material; application and partner data are excluded.', zh: '公开案例使用沙箱场景与公开法规材料，不展示申请或合作方内部数据。' },
   },
   {
-    slug: 'meet-ta', index: '04',
+    slug: 'meet-ta', index: '05',
     category: { en: 'Multimodal AI · Team prototype', zh: '多模态 AI · 团队原型' },
     title: { en: 'Meet-ta', zh: 'Meet-ta 情绪感知对话系统' },
     subtitle: { en: 'Give conversational AI a visual emotion signal and a multimodal interaction loop.', zh: '让对话 AI 感知视觉情绪，连接多模态交互。' },
@@ -174,7 +207,7 @@ export const projects: Project[] = [
     reflection: { en: 'A vision model adds product value when its outputs fit the interaction loop. Turn level fusion connects emotion timing and confidence to conversation context while leaving room for text and voice signals.', zh: '视觉模型的产品价值来自与交互链路的衔接。按轮次融合，让情绪的时间与置信度进入对话上下文，同时结合文本和语音信号。' },
   },
   {
-    slug: 'discourse-research', index: '05',
+    slug: 'discourse-research', index: '06',
     category: { en: 'NLP · Experimental research', zh: 'NLP · 实验研究' },
     title: { en: 'Implicit Discourse Relation Research', zh: '隐式篇章关系分类研究' },
     subtitle: { en: 'Test how positional and structural signals affect discourse classification.', zh: '用受控实验检验位置与结构信号的分类价值。' },
@@ -210,6 +243,7 @@ const projectExperience = [
   { projectSlug: 'meet-ta', title: { en: 'Vision AI & multimodal integration', zh: '视觉 AI 与多模态集成' }, place: 'University of Auckland', description: { en: 'Developed and evaluated the visual emotion pipeline, then integrated it into Meet-ta’s conversational prototype.', zh: '开发与评估视觉情绪链路，接入 Meet-ta 多模态对话原型。' } },
   { projectSlug: 'discourse-research', title: { en: 'NLP research & model experiments', zh: 'NLP 研究与模型实验' }, place: 'University of Auckland', description: { en: 'Built the TED-MDB data pipeline and ran 40 MiniLM experiments with metrics and visual analysis.', zh: '完成 TED-MDB 数据处理与 40 次 MiniLM 实验，进行指标分析与可视化。' } },
   { projectSlug: 'uav-advisory-agent', title: { en: 'LLM application & agent design', zh: '大模型应用与智能体设计' }, place: 'New Zealand Customs', description: { en: 'Built a five-stage UAV export-controls advisory Agent and evaluated 15+ boundary scenarios.', zh: '开发五阶段无人机出口管制咨询 Agent，并用 15 个以上边界场景进行评测。' } },
+  { projectSlug: 'caretrip-goai', title: { en: 'CareTrip Ops · Agent Teams design', zh: 'CareTrip Ops · Agent Teams 方案' }, place: 'GOAI Agent Infra', description: { en: 'Designed an Alibaba Cloud Agent Teams service architecture with Manager / Worker roles, Skills, and MCP contracts.', zh: '基于阿里云 Agent Teams 设计 Manager / Worker 协作、Skills 与 MCP 契约。' } },
   { projectSlug: 'caretrip-ops', title: { en: 'CareTrip Ops · Agent development', zh: 'CareTrip Ops · Agent 开发' }, place: 'ZEIL Hackathon', description: { en: 'Built and tested the travel agent workflow with verifiable quotes, approval checkpoints, and simulated orders.', zh: '开发旅行 Agent 工作流，覆盖报价核验、用户确认和模拟订单，并完成前后端测试。' } },
 ].map(item => ({ ...item, kind: 'project' as const, period: projects.find(project => project.slug === item.projectSlug)!.period }))
 
@@ -243,9 +277,9 @@ export const awards = [
 
 export const categories = [
   { slug: 'role', name: { en: 'The person', zh: '角色' }, subtitle: { en: 'Mindset, story & experience', zh: '背景、工作方式与经历' }, image: './visuals/role.webp', link: '#/about', projectSlugs: [] },
-  { slug: 'product', name: { en: 'Product', zh: '产品' }, subtitle: { en: 'From a need to a workflow', zh: '从需求到可执行工作流' }, image: './visuals/product.webp', link: '#/categories/product', projectSlugs: ['caretrip-ops', 'meet-ta'] },
+  { slug: 'product', name: { en: 'Product', zh: '产品' }, subtitle: { en: 'From a need to a workflow', zh: '从需求到可执行工作流' }, image: './visuals/product.webp', link: '#/categories/product', projectSlugs: ['caretrip-ops', 'caretrip-goai', 'meet-ta'] },
   { slug: 'development', name: { en: 'Development', zh: '开发' }, subtitle: { en: 'Engineering useful applications', zh: 'AI 应用与工程集成' }, image: './visuals/development.webp', link: '#/categories/development', projectSlugs: ['allied-medical-rag', 'meet-ta'] },
-  { slug: 'agent', name: { en: 'Agents', zh: 'Agent' }, subtitle: { en: 'Reason, retrieve & collaborate', zh: '检索、推理与协同' }, image: './visuals/agent.webp', link: '#/categories/agent', projectSlugs: ['uav-advisory-agent', 'caretrip-ops'] },
+  { slug: 'agent', name: { en: 'Agents', zh: 'Agent' }, subtitle: { en: 'Reason, retrieve & collaborate', zh: '检索、推理与协同' }, image: './visuals/agent.webp', link: '#/categories/agent', projectSlugs: ['uav-advisory-agent', 'caretrip-ops', 'caretrip-goai'] },
   { slug: 'algorithm', name: { en: 'Algorithms', zh: '算法' }, subtitle: { en: 'Train, compare & understand', zh: '训练、比较与模型理解' }, image: './visuals/algorithm.webp', link: '#/categories/algorithm', projectSlugs: ['discourse-research', 'meet-ta'] },
 ]
 
@@ -260,6 +294,7 @@ export const strengths = [
 export const projectVisuals: Record<string, string> = {
   'allied-medical-rag': './visuals/development.webp',
   'caretrip-ops': './visuals/product.webp',
+  'caretrip-goai': './visuals/product.webp',
   'uav-advisory-agent': './visuals/agent.webp',
   'meet-ta': './visuals/role.webp',
   'discourse-research': './visuals/algorithm.webp',

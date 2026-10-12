@@ -20,6 +20,8 @@ export default function ProjectDetail({ project, lang }: { project: Project; lan
         <h1>{t(project.title, lang)}</h1>
         <p className="detail-overview">{t(project.overview, lang)}</p>
         {project.repo && <a href={project.repo} target="_blank" rel="noreferrer">{lang === 'zh' ? '查看项目仓库' : 'View repository'} ↗</a>}
+        {project.slug === 'caretrip-ops' && <p><a href="#/projects/caretrip-goai">{lang === 'zh' ? '另见：GOAI 阿里云 Agent Teams 方案' : 'Also see: GOAI Alibaba Cloud Agent Teams proposal'} →</a></p>}
+        {project.slug === 'caretrip-goai' && <p><a href="#/projects/caretrip-ops">{lang === 'zh' ? '另见：ZEIL LangGraph 实现' : 'Also see: ZEIL LangGraph implementation'} →</a></p>}
       </div>
 
       <dl className="detail-facts">
