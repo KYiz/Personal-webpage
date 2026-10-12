@@ -21,7 +21,7 @@ Run `npm run build` to check TypeScript, content links, and the production bundl
 - `src/ProjectDetail.tsx`: case-study layout.
 - `src/data.ts`: bilingual profile and project content. Add a verified public `repo` URL to a project to show its GitHub link on the homepage and case study. Leave it unset for private or unpublished work.
 - `src/minimal.css`: current responsive design.
-- `public/docs/`: CV and 16-page portfolio PDF.
+- `public/docs/Yixiang_Zou_Resume.pdf`: current Chinese CV. The older portfolio PDF remains in the repository as an archive and is not linked from the homepage because its CareTrip project description predates the current implementation.
 
 The homepage and case studies use hash routes so they work under the GitHub Pages repository path. Older design components remain in `src/` for reference but are not imported by the current site.
 

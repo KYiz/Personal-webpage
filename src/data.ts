@@ -5,27 +5,27 @@ export const t = (value: Localized, language: Language) => value[language]
 export const profile = {
   name: 'Yixiang Zou',
   chineseName: '邹逸翔',
-  email: 'Yixiangzou2012@gmail.com',
+  email: 'yixiangzou2012@gmail.com',
   linkedin: 'https://www.linkedin.com/in/kelvin-zou-211yxz/',
   github: 'https://github.com/KYiz',
   resume: './docs/Yixiang_Zou_Resume.pdf',
   portfolio: './docs/Yixiang_Zou_AI_Agent_Product_Portfolio.pdf',
   location: { en: 'Auckland, New Zealand', zh: '新西兰 · 奥克兰' },
   headline: {
-    en: 'Connecting AI models to products and real workflows.',
-    zh: '把 AI 模型连接到产品与真实工作流。',
+    en: 'Building useful AI applications with Python and Java.',
+    zh: '用 Python 与 Java 开发可落地的 AI 应用。',
   },
   introduction: {
-    en: 'AI engineering, agent systems, and product thinking. I build retrieval workflows, develop vision models, and translate complex service needs into agent architectures.',
-    zh: '以 AI 工程为基础，连接 Agent 系统与产品设计。从企业检索工作流、视觉模型开发，到复杂服务场景的 Agent 架构，把技术能力转化为具体的解决方案。',
+    en: 'I develop AI applications with Python and Java, including retrieval workflows, agent systems, and computer vision.',
+    zh: '主要使用 Python 与 Java 开发 AI 应用，涉及企业检索工作流、Agent 系统与计算机视觉。',
   },
 }
 
 export const skills = [
-  { label: 'AI / Agent', title: { en: 'AI / Agent', zh: 'AI / Agent' }, items: ['RAG', 'Prompt design', 'Agent workflows', 'Human review', 'Evaluation'] },
-  { label: 'Engineering', title: { en: 'Engineering', zh: '工程开发' }, items: ['Java', 'Spring Boot', 'Python', 'FastAPI', 'REST APIs', 'Docker'] },
-  { label: 'Data / ML', title: { en: 'Data / ML', zh: '数据与机器学习' }, items: ['pgvector', 'MongoDB', 'PyTorch', 'Computer vision', 'NLP'] },
-  { label: 'Product', title: { en: 'Product', zh: '产品设计' }, items: ['Requirements', 'Workflow design', 'Acceptance criteria', 'Metrics', 'Prototyping'] },
+  { label: 'AI / Agent', title: { en: 'AI / Agent', zh: 'AI / Agent' }, items: ['RAG', 'Hybrid search', 'Reranking', 'LangGraph', 'Human review'] },
+  { label: 'Engineering', title: { en: 'Engineering', zh: '工程开发' }, items: ['Python', 'Java', 'FastAPI', 'Spring Boot', 'REST APIs', 'Docker', 'React', 'TypeScript'] },
+  { label: 'Data / ML', title: { en: 'Data / ML', zh: '数据与机器学习' }, items: ['PostgreSQL', 'pgvector', 'MongoDB', 'SQLite', 'PyTorch', 'Computer vision'] },
+  { label: 'Product', title: { en: 'Product', zh: '产品设计' }, items: ['Workflow design', 'Pydantic', 'Checkpoints', 'Idempotency', 'Evaluation'] },
 ]
 
 export type Project = {
@@ -57,7 +57,7 @@ export const projects: Project[] = [
     subtitle: { en: 'Connect fragmented product knowledge to the service team’s daily workflow.', zh: '连接分散的产品知识与客服日常工作流。' },
     period: { en: 'Mar – Jul 2026', zh: '2026.03 – 07' },
     role: { en: 'AI Engineering Intern · Allied Medical Limited', zh: 'AI 工程实习生 · Allied Medical Limited' },
-    tags: ['Java', 'Spring AI', 'GPT-4o', 'pgvector', 'MongoDB', 'Front API'],
+    tags: ['Java', 'Spring Boot', 'Spring AI', 'GPT-4o', 'pgvector', 'Front API'],
     status: { en: 'Internship delivery', zh: '实习项目交付' },
     overview: { en: 'Extended an existing Java / Spring Boot prototype into a connected service workflow. I worked across source ingestion, knowledge refresh, retrieval evidence, and Front integration, turning partial descriptions, images, manuals, and ERP records into actionable parts suggestions for staff.', zh: '在已有 Java / Spring Boot 原型上，推进从资料摄入、知识刷新、检索证据到 Front 集成的完整链路，将不完整描述、图片、手册和 ERP 记录整理为员工可直接审核的零件建议。' },
     challenge: { en: 'More than 50,000 stock records, technical diagrams, and mixed file formats made finding the right replacement part difficult. The engineering challenge was to keep this knowledge current and return useful evidence inside the existing service tools.', zh: '50,000 多条库存记录、技术图纸与多种格式资料，让替换零件定位变得复杂。工程重点是保持知识及时更新，并在现有客服工具中返回可用的候选与依据。' },
@@ -67,16 +67,16 @@ export const projects: Project[] = [
       { en: 'Connected tagged Front conversations to asynchronous analysis and editable internal comments.', zh: '将 Front 标签触发的会话接入异步分析，并生成可编辑的内部评论。' },
     ],
     architecture: [
-      { en: 'Source files → chunking and GPT-4o image descriptions → embeddings and pgvector retrieval.', zh: '源文件 → 文本分块与 GPT-4o 图像描述 → 嵌入与 pgvector 检索。' },
-      { en: 'Spring Boot / Spring AI orchestrated retrieval and analysis; MongoDB held supporting workflow data.', zh: 'Spring Boot / Spring AI 编排检索和分析，MongoDB 支持工作流数据。' },
+      { en: 'Source files → text and image parsing → embeddings → pgvector hybrid search, Top-20 retrieval and Top-5 reranking.', zh: '源文件 → 文本与图像解析 → 向量化 → pgvector 混合检索 Top-20 与重排 Top-5。' },
+      { en: 'Spring Boot / Spring AI orchestrated retrieval and analysis; PostgreSQL / pgvector held indexed knowledge.', zh: 'Spring Boot / Spring AI 编排检索和分析，PostgreSQL / pgvector 保存索引知识。' },
       { en: 'Front API posted suggestions as internal comments for human editing.', zh: 'Front API 将建议发布为内部评论，供员工编辑。' },
     ],
     process: [
-      { en: 'Tracked source identity so updated files could replace stale embeddings.', zh: '追踪文件来源，让更新后的文件替换旧向量。' },
-      { en: 'Connected Front webhooks to an HTTP 202 acknowledgement and background analysis, with internal-comment delivery and a conversation-ID recovery path.', zh: '将 Front Webhook 接入 HTTP 202 快速确认与后台分析，支持内部评论输出及基于会话 ID 的恢复路径。' },
+      { en: 'Used OneDrive ingestion and source tracking to refresh embeddings when files changed.', zh: '通过 OneDrive 自动摄入和来源追踪，在文件更新时刷新向量。' },
+      { en: 'Connected Front webhooks to asynchronous analysis with @Async / CompletableFuture, confidence thresholds, and staff review.', zh: '将 Front Webhook 接入 @Async / CompletableFuture 异步分析，设置置信度阈值并保留人工审核。' },
     ],
     outcomes: [
-      { en: 'Connected source refresh, multimodal retrieval, and Front internal comments into the service workflow.', zh: '打通资料刷新、多模态检索与 Front 内部评论的客服工作链路。' },
+      { en: 'The system remained in service use; Top-1 accuracy reached 86.32% and Recall@5 reached 88.16%.', zh: '系统持续投入客服使用；Top-1 准确率为 86.32%，Recall@5 为 88.16%。' },
       { en: 'Gave staff editable parts suggestions with evidence and next questions, preserving their control of the customer conversation.', zh: '为员工提供可编辑的零件建议、依据与后续追问，并将客户沟通决策留在审核环节。' },
     ],
     reflection: { en: 'An enterprise AI workflow succeeds when knowledge freshness, useful evidence, and delivery into existing tools work together. Treating staff review as part of the architecture made the output fit the service process.', zh: '企业 AI 的价值来自知识时效、有效证据与现有工具集成的共同作用。把员工审核作为架构的一部分，才能让模型输出真正进入服务流程。' },
@@ -84,42 +84,40 @@ export const projects: Project[] = [
   },
   {
     slug: 'caretrip-ops', index: '02',
-    category: { en: 'Agent product · Service design', zh: 'Agent 产品 · 服务设计' },
-    title: { en: 'CareTrip Ops', zh: 'CareTrip Ops 旅伴办' },
-    subtitle: { en: 'Design a coordinated agent service from a travel request to verified ticketing.', zh: '从一句出游需求，到可核验的服务闭环。' },
-    period: { en: '2026 · GOAI Agent Infra preliminary round', zh: '2026 · GOAI Agent Infra 初赛' },
-    role: { en: 'Agent product and system design', zh: 'Agent 产品与系统方案设计' },
-    tags: ['AgentTeams', 'Skills', 'MCP contracts', 'HITL', 'Product design'],
-    status: { en: 'Agent product / solution design', zh: 'Agent 产品与解决方案设计' },
-    overview: { en: 'CareTrip Ops designs an agent assisted service for travel agencies and OTAs. It translates phone and WeChat requests into explicit constraints, comparable options, traveller confirmation, payment handoff, and ticket verification, with coordinated roles across the full journey.', zh: 'CareTrip Ops 面向旅行社与 OTA 设计 Agent 协同服务，将电话和微信中的出游需求转为明确约束、方案比较、本人确认、支付交接与出票核验，贯通银发出行的服务链路。' },
-    challenge: { en: 'A travel request involves the traveller, family members, service staff, and external suppliers. The product challenge was to coordinate these roles while keeping preferences, permissions, transaction status, and service evidence consistent.', zh: '一条出游需求涉及老人、家属、客服与外部供应商。产品重点是协调多方角色，让偏好、权限、交易状态与服务证据保持一致。' },
+    category: { en: 'Agent development · Hackathon', zh: 'Agent 开发 · 黑客松' },
+    title: { en: 'CareTrip Ops', zh: 'CareTrip Ops' },
+    subtitle: { en: 'A travel planning agent with verifiable quotes and user approval.', zh: '可核验报价、由用户确认的旅行规划 Agent。' },
+    period: { en: 'Sep – Oct 2026', zh: '2026.09 – 10' },
+    role: { en: 'AI Agent development · ZEIL Hackathon', zh: 'AI Agent 开发 · ZEIL Hackathon' },
+    tags: ['Python', 'FastAPI', 'LangGraph', 'PostgreSQL', 'React', 'TypeScript'],
+    status: { en: 'Working workflow PoC', zh: '可运行工作流 PoC' },
+    overview: { en: 'Built a New Zealand travel-agent workflow PoC covering request clarification, sample itinerary planning, quote verification, user approval, and a simulated order. The prototype does not process real payments or bookings.', zh: '开发面向新西兰出行场景的旅行 Agent 工作流 PoC，覆盖需求澄清、样例行程、报价核验、用户确认和模拟订单；原型不处理真实支付或预订。' },
+    challenge: { en: 'An LLM can propose an itinerary, but prices and booking decisions need reproducible checks and explicit user approval. The workflow also needs to recover safely after interruptions or repeated requests.', zh: 'LLM 可以提出行程，但价格与下单决策需要可复核的规则和明确的用户确认；工作流还需在中断或重复请求后安全恢复。' },
     responsibility: [
-      { en: 'Designed the product journey from request intake and clarification to option comparison, transaction checks, and after sales handling.', zh: '拆解用户旅程，设计从需求受理、澄清、方案比较到交易核验与售后处理的产品流程。' },
-      { en: 'Specified agent identities, Skill contracts, state transitions, exception branches, and acceptance criteria with the team.', zh: '与团队制定 Agent Identity、Skill 契约、状态流转、异常分支和验收条件。' },
-      { en: 'Designed confirmation, staff handoff, and evidence review around payment and other sensitive decisions.', zh: '围绕支付等关键决策，设计本人确认、人工接管与证据审核机制。' },
+      { en: 'Built Python / FastAPI business APIs and LangGraph routing with interrupt and resume checkpoints stored in PostgreSQL.', zh: '开发 Python / FastAPI 业务 API、LangGraph 路由与中断恢复流程，并用 PostgreSQL 保存检查点。' },
+      { en: 'Defined Pydantic schemas and a two-stage Planner → Reviewer flow with optional Gemini / OpenAI models.', zh: '定义 Pydantic 数据结构，构建可选 Gemini / OpenAI 模型的 Planner → Reviewer 两阶段流程。' },
+      { en: 'Connected a React / TypeScript interface to itinerary review, quote checks, approval, and simulated order states.', zh: '使用 React / TypeScript 实现行程查看、报价核验、用户确认和模拟订单状态的前端流程。' },
     ],
     architecture: [
-      { en: '1 Manager + 5 Workers coordinate the service journey, with independent evidence review and recommendation conflict arbitration.', zh: '1 个 Manager + 5 个 Workers 协调服务旅程，并设置独立证据核验与推荐冲突仲裁。' },
-      { en: 'The architecture specifies 27 layered Skills (8 general, 5 scenario, 14 integration) and 4 planned MCP service types. A companion inventory details 16 core Skills.', zh: '架构规划 27 项分层 Skills（8 通用、5 场景、14 集成）与 4 类 MCP 服务；配套清单细化 16 项核心 Skills。' },
-      { en: 'MCP / Adapter contracts connect proposed external systems; deterministic services handle pricing, permissions, and payment checks.', zh: 'MCP / Adapter 契约规划外部系统连接；价格、权限和支付核验交由确定性服务。' },
+      { en: 'Request → clarification → Planner → Reviewer → deterministic quote verification → user approval → simulated order.', zh: '用户需求 → 澄清 → Planner → Reviewer → 确定性报价核验 → 用户确认 → 模拟订单。' },
+      { en: 'PostgreSQL checkpoints support interruption and resumption; quote snapshots, versions, transaction locks, and idempotency guard state changes.', zh: 'PostgreSQL 检查点支持中断恢复；报价快照、版本号、事务锁和幂等机制约束状态变更。' },
     ],
     process: [
-      { en: 'Mapped an older traveller’s voice request into missing fields, hard constraints, and preferences.', zh: '将银发用户的语音需求拆解为缺失字段、硬约束和偏好。' },
-      { en: 'Designed evidence grades, fallback paths, checkpoints, idempotency, and a staff review path.', zh: '设计证据分级、降级路径、检查点、幂等和人工审核。' },
-      { en: 'Planned mock data, demo scenarios, and target metrics to make the design testable.', zh: '规划模拟数据、Demo 场景与目标指标，让产品方案具备明确的验证路径。' },
+      { en: 'Separated model-generated travel suggestions from rule-based validation of prices and order state.', zh: '将模型生成的旅行建议与基于规则的价格、订单状态校验分开。' },
+      { en: 'Tested approval, resumption, repeated requests, and database-backed flows across backend and frontend.', zh: '覆盖用户确认、中断恢复、重复请求和数据库工作流的前后端测试。' },
     ],
     outcomes: [
-      { en: 'Produced the preliminary product proposal, agent architecture, Skill contracts, state machine, and acceptance criteria.', zh: '形成初赛产品方案、Agent 架构、Skill 契约、状态机与验收标准。' },
-      { en: 'Defined a complete service loop and evaluation plan covering normal requests, exceptions, and staff intervention.', zh: '完成覆盖常规需求、异常分支与人工介入的服务闭环及评估规划。' },
+      { en: 'Completed a working PoC for the travel workflow without real payment or booking integrations.', zh: '完成不接入真实支付或预订系统的旅行工作流 PoC。' },
+      { en: 'All 65 backend and 11 frontend tests passed, including 18 PostgreSQL integration tests.', zh: '65 项后端与 11 项前端测试全部通过，其中包括 18 项 PostgreSQL 集成测试。' },
     ],
-    reflection: { en: 'Agent product design requires precise responsibilities, recoverable states, and testable contracts. These choices turn a broad service idea into a concrete architecture and a practical implementation plan.', zh: 'Agent 产品设计需要明确职责、可恢复状态与可验证契约。这些设计把宽泛的服务构想转为具体架构与可执行的开发规划。' },
+    reflection: { en: 'The useful boundary for this agent is clear: models help draft and review options, while deterministic checks and user approval control consequential state changes.', zh: '这个 Agent 的关键边界很清楚：模型辅助生成与审核方案，确定性校验和用户确认把控关键状态变更。' },
   },
   {
     slug: 'uav-advisory-agent', index: '03',
     category: { en: 'LLM application · Internship', zh: '大模型应用 · 实习' },
     title: { en: 'UAV Export Advisory Agent', zh: '无人机出口管制咨询 Agent' },
     subtitle: { en: 'Turn regulatory documents into a structured, five stage advisory workflow.', zh: '将复杂法规材料转为结构化五阶段咨询流程。' },
-    period: { en: 'Mar – Jul 2025', zh: '2025.03 – 07' },
+    period: { en: 'Jan – Jun 2025', zh: '2025.01 – 06' },
     role: { en: 'LLM application and agent design · New Zealand Customs', zh: '大模型应用与智能体设计 · 新西兰海关' },
     tags: ['IBM watsonx', 'RAG', 'LangGraph', 'ReAct', 'NZSGL', 'Prompt Lab'],
     status: { en: 'Internship project · advisory agent PoC', zh: '实习项目 · 咨询 Agent PoC' },
@@ -140,7 +138,7 @@ export const projects: Project[] = [
     ],
     outcomes: [
       { en: 'Built a five-stage advisory Agent PoC with regulatory retrieval, state-based branching, and auditable structured output.', zh: '形成五阶段咨询 Agent PoC，涵盖法规检索、基于状态的条件分支与可复核的结构化输出。' },
-      { en: 'Established output rules and a 15+ edge-case evaluation set for consistent regulatory explanations.', zh: '形成输出规则与 15 个以上边界案例的评测集，支撑一致的法规解释。' },
+      { en: 'Regulatory judgment accuracy reached 88.24%, with 90.91% recall on controlled cases.', zh: '法规判断准确率为 88.24%，受控案例召回率为 90.91%。' },
     ],
     reflection: { en: 'Good prompts define the path from retrieved material to conclusions. Separating listing, controls, exemptions, and final advice makes inconsistencies easier to detect and gives reviewers a clear point of intervention.', zh: '好的提示工程要定义从检索材料到结论的路径。分离清单、管制、豁免与最终建议，便于定位推理不一致，也为人工审核提供明确入口。' },
     note: { en: 'Public case study uses sandbox scenarios and public regulatory material; application and partner data are excluded.', zh: '公开案例使用沙箱场景与公开法规材料，不展示申请或合作方内部数据。' },
@@ -170,7 +168,7 @@ export const projects: Project[] = [
       { en: 'Connected the selected model to a turn level, late fusion conversation flow.', zh: '将选定模型接入按对话轮次进行后期融合的交互链路。' },
     ],
     outcomes: [
-      { en: 'The selected model achieved 75.69% validation accuracy and 75.34% test accuracy.', zh: '选定模型取得 75.69% 验证准确率与 75.34% 测试准确率。' },
+      { en: 'The selected model achieved 85.69% validation accuracy and 85.34% test accuracy.', zh: '选定模型取得 85.69% 验证准确率与 85.34% 测试准确率。' },
       { en: 'A browser based multimodal interaction prototype was completed by the team.', zh: '团队完成浏览器端多模态交互原型。' },
     ],
     reflection: { en: 'A vision model adds product value when its outputs fit the interaction loop. Turn level fusion connects emotion timing and confidence to conversation context while leaving room for text and voice signals.', zh: '视觉模型的产品价值来自与交互链路的衔接。按轮次融合，让情绪的时间与置信度进入对话上下文，同时结合文本和语音信号。' },
@@ -212,7 +210,7 @@ const projectExperience = [
   { projectSlug: 'meet-ta', title: { en: 'Vision AI & multimodal integration', zh: '视觉 AI 与多模态集成' }, place: 'University of Auckland', description: { en: 'Developed and evaluated the visual emotion pipeline, then integrated it into Meet-ta’s conversational prototype.', zh: '开发与评估视觉情绪链路，接入 Meet-ta 多模态对话原型。' } },
   { projectSlug: 'discourse-research', title: { en: 'NLP research & model experiments', zh: 'NLP 研究与模型实验' }, place: 'University of Auckland', description: { en: 'Built the TED-MDB data pipeline and ran 40 MiniLM experiments with metrics and visual analysis.', zh: '完成 TED-MDB 数据处理与 40 次 MiniLM 实验，进行指标分析与可视化。' } },
   { projectSlug: 'uav-advisory-agent', title: { en: 'LLM application & agent design', zh: '大模型应用与智能体设计' }, place: 'New Zealand Customs', description: { en: 'Built a five-stage UAV export-controls advisory Agent and evaluated 15+ boundary scenarios.', zh: '开发五阶段无人机出口管制咨询 Agent，并用 15 个以上边界场景进行评测。' } },
-  { projectSlug: 'caretrip-ops', title: { en: 'CareTrip Ops · Agent product design', zh: 'CareTrip Ops · Agent 产品设计' }, place: 'GOAI Agent Infra', description: { en: 'Designed the service journey, Manager / Worker architecture, Skill contracts, and acceptance plan for older travellers.', zh: '面向银发出行，设计服务旅程、Manager / Worker 架构、Skill 契约与验收规划。' } },
+  { projectSlug: 'caretrip-ops', title: { en: 'CareTrip Ops · Agent development', zh: 'CareTrip Ops · Agent 开发' }, place: 'ZEIL Hackathon', description: { en: 'Built and tested the travel agent workflow with verifiable quotes, approval checkpoints, and simulated orders.', zh: '开发旅行 Agent 工作流，覆盖报价核验、用户确认和模拟订单，并完成前后端测试。' } },
 ].map(item => ({ ...item, kind: 'project' as const, period: projects.find(project => project.slug === item.projectSlug)!.period }))
 
 export const experience = [
@@ -253,7 +251,7 @@ export const categories = [
 
 export const strengths = [
   { title: { en: 'Connect the engineering chain', zh: '打通 AI 工程链路' }, description: { en: 'From knowledge refresh and retrieval to APIs and service tools.', zh: '贯通知识刷新、检索、API 与业务工具集成。' }, link: '#/projects/allied-medical-rag', category: 'development' },
-  { title: { en: 'Turn needs into architecture', zh: '把需求转化为系统设计' }, description: { en: 'Service journeys, agent responsibilities, and testable contracts.', zh: '从服务旅程出发，定义 Agent 职责与可验证契约。' }, link: '#/projects/caretrip-ops', category: 'product' },
+  { title: { en: 'Turn needs into architecture', zh: '把需求转化为系统设计' }, description: { en: 'Agent workflows, quote verification, and approval checkpoints.', zh: '实现 Agent 工作流、报价核验与用户确认。' }, link: '#/projects/caretrip-ops', category: 'product' },
   { title: { en: 'Structure agent reasoning', zh: '设计结构化 Agent 推理' }, description: { en: 'Connect retrieval, prompts, and scenario tests into a consistent flow.', zh: '连接检索、提示与场景测试，形成一致的推理流程。' }, link: '#/projects/uav-advisory-agent', category: 'agent' },
   { title: { en: 'Understand models through experiments', zh: '通过实验理解模型' }, description: { en: 'Controlled comparisons, multiple seeds, and visual analysis.', zh: '用受控比较、多随机种子与可视化定位模型表现。' }, link: '#/projects/discourse-research', category: 'algorithm' },
   { title: { en: 'Build across disciplines', zh: '推动跨模块协作' }, description: { en: 'Bring vision models into a shared multimodal product.', zh: '衔接视觉模型与交互模块，共同完成多模态产品。' }, link: '#/projects/meet-ta', category: 'role' },
@@ -274,9 +272,8 @@ export const portfolioDocument = {
 }
 
 export const careerRoles = [
-  { en: 'AI Agent developer', zh: 'AI Agent 开发工程师' },
+  { en: 'AI application developer', zh: 'AI 应用开发工程师' },
   { en: 'Applied AI engineer', zh: 'AI 应用工程师' },
-  { en: 'AI product management', zh: 'AI 产品经理' },
 ]
 
 export const homeHighlights = [
@@ -288,5 +285,5 @@ export const homeHighlights = [
 export const workingStyle = [
   { title: { en: 'Curious, then methodical', zh: '带着问题动手验证' }, description: { en: 'I break questions into experiments, compare multiple runs, and use metrics and visualizations to understand what changes.', zh: '习惯把问题拆成可执行实验，通过多次比较、指标与可视化理解变化，而后形成判断。' }, link: '#/projects/discourse-research' },
   { title: { en: 'Own a module, connect the team', zh: '把自己的模块做深，把接口接好' }, description: { en: 'In Meet-ta, I worked through the vision pipeline and collaborated on how its outputs fit voice, interface, and conversation modules.', zh: '在 Meet-ta 中深入完成视觉链路，也关注输出如何与语音、界面和对话模块衔接。' }, link: '#/projects/meet-ta' },
-  { title: { en: 'Think through the next step', zh: '不仅想流程，也想异常与下一步' }, description: { en: 'I plan how a service recovers, who takes over, and how a design is accepted, as reflected in CareTrip Ops.', zh: '设计服务时会继续追问：失败后如何恢复、由谁接管、用什么标准验收，并把这些写进方案。' }, link: '#/projects/caretrip-ops' },
+  { title: { en: 'Think through the next step', zh: '不仅想流程，也想异常与下一步' }, description: { en: 'In CareTrip Ops, I built interruption recovery, quote verification, and explicit user approval into the workflow.', zh: '在 CareTrip Ops 中，将中断恢复、报价核验与用户确认落实到工作流。' }, link: '#/projects/caretrip-ops' },
 ]
